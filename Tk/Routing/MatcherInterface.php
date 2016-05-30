@@ -15,7 +15,7 @@ interface MatcherInterface
      * Return true if a path matches a Route object
      *
      * @param \Tk\Request $request
-     * @return Route
+     * @return array
      */
     public function match($request);
     

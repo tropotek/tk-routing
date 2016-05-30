@@ -42,6 +42,11 @@ class Route
      */
     protected $validMethods = array();
 
+    /**
+     * @var null|CompiledRoute
+     */
+    private $compiled;
+
 
     /**
      * construct
@@ -56,7 +61,7 @@ class Route
     {
         $this->path = $path;
         $this->controller = $controller;
-        $this->attributes = new Collection();
+        $this->attributes = new Collection($attributes);
         $this->validMethods = $validMethods;
     }
 
@@ -111,4 +116,26 @@ class Route
         return $this->attributes;
     }
     
+
+    /**
+     * Compiles the route.
+     *
+     * @return CompiledRoute A CompiledRoute instance
+     *
+     * @throws \LogicException If the Route cannot be compiled because the
+     *                         path or host pattern is invalid
+     *
+     * @see RouteCompiler which is responsible for the compilation process
+     */
+    public function compile()
+    {
+        if (null !== $this->compiled) {
+            return $this->compiled;
+        }
+        
+        //$class = $this->getOption('compiler_class');
+        //return $this->compiled = $class::compile($this);
+        
+        return $this->compiled = RouteCompiler::compile($this);
+    }
 }

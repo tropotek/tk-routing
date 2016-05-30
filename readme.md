@@ -7,6 +7,9 @@ __Authors:__ Michael Mifsud <http://www.tropotek.com/>
   
 A URL Routing lib to support the Tropotek lib V2.
 
+This routing lib has been adapted from the Symfony sources.  
+I wanted the basic functionality of the Symfony routing without the overhead.
+
 ## Contents
 
 - [Installation](#installation)

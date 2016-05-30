@@ -41,15 +41,13 @@ class RouteListener implements SubscriberInterface
         $request = $event->getRequest();
         
         if ($request->hasAttribute('_controller')) {
-            // Route found
+            // Route Already found
             return;
         }
         
-        $route = $this->matcher->match($request);
-        //vd('-----------------------', $route);
-        if ($route) {
-            $request->setAttribute('_route', $route);
-            $request->setAttribute('_controller', $route->getController());
+        $routeAttrs = $this->matcher->match($request);
+        if (count($routeAttrs)) {
+            $request->replaceAttribute($routeAttrs);
         }
     }
 

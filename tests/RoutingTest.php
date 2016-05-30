@@ -4,7 +4,7 @@ namespace tests;
 use Tk\Request;
 use Tk\Routing\Route;
 use Tk\Routing\RouteCollection;
-use Tk\Routing\RequestMatcher;
+use Tk\Routing\UrlMatcher;
 
 
 /**
@@ -76,7 +76,7 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
     
     public function testRouteMatcher()
     {
-        $matcher = new RequestMatcher($this->routeCollection);
+        $matcher = new UrlMatcher($this->routeCollection);
         
         $request = new Request(\Tk\Uri::create('/index.html'), 'GET', \Tk\Headers::create(), $_REQUEST, $_SERVER);
         $route = $matcher->match($request);

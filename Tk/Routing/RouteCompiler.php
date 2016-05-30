@@ -35,25 +35,23 @@ class RouteCompiler
         $hostRegex = null;
         $hostTokens = array();
 
-        if ('' !== $host = $route->getHost()) {
-            $result = self::compilePattern($route, $host, true);
-
-            $hostVariables = $result['variables'];
-            $variables = $hostVariables;
-
-            $hostTokens = $result['tokens'];
-            $hostRegex = $result['regex'];
-        }
+//        if ('' !== $host = $route->getHost()) {
+//            $result = self::compilePattern($route, $host, true);
+//
+//            $hostVariables = $result['variables'];
+//            $variables = $hostVariables;
+//
+//            $hostTokens = $result['tokens'];
+//            $hostRegex = $result['regex'];
+//        }
 
         $path = $route->getPath();
 
         $result = self::compilePattern($route, $path, false);
-
         $staticPrefix = $result['staticPrefix'];
 
         $pathVariables = $result['variables'];
         $variables = array_merge($variables, $pathVariables);
-
         $tokens = $result['tokens'];
         $regex = $result['regex'];
 
@@ -100,8 +98,8 @@ class RouteCompiler
             } elseif (!$isSeparator && strlen($precedingText) > 0) {
                 $tokens[] = array('text', $precedingText);
             }
-
-            $regexp = $route->getRequirement($varName);
+            //$regexp = $route->getRequirement($varName);
+            $regexp = null;
             if (null === $regexp) {
                 $followingPattern = (string) substr($pattern, $pos);
                 // Find the next static character after the variable that functions as a separator. By default, this separator and '/'
@@ -140,7 +138,8 @@ class RouteCompiler
         if (!$isHost) {
             for ($i = count($tokens) - 1; $i >= 0; --$i) {
                 $token = $tokens[$i];
-                if ('variable' === $token[0] && $route->hasDefault($token[3])) {
+                //if ('variable' === $token[0] && $route->hasDefault($token[3])) {
+                if ('variable' === $token[0] && $route->getAttributes()->has($token[3])) {
                     $firstOptional = $i;
                 } else {
                     break;
@@ -214,7 +213,6 @@ class RouteCompiler
                         $regexp .= str_repeat(')?', $nbTokens - $firstOptional - (0 === $firstOptional ? 1 : 0));
                     }
                 }
-
                 return $regexp;
             }
         }
