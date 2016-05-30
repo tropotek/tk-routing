@@ -32,13 +32,13 @@ class UrlMatcher implements MatcherInterface
      *
      * @param \Tk\Request $request
      * @return array
-     * @todo return an array of parameters that the route created including the expected '_controller' param...?
      */
     public function match($request)
     {
         // Match request path to the route path
         $uri = $request->getUri();
         $pathinfo = $uri->getRelativePath();
+        if ($pathinfo === '') $pathinfo = '/';  // Look for default home path if path is empty, Keep an eye on this one....
         
         /** @var Route $route */
         foreach($this->routeCollection as $name => $route) {
