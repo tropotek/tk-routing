@@ -60,6 +60,7 @@ class Route
     public function __construct($path, $controller, $attributes = [], $validMethods = ['GET','POST','HEAD'])
     {
         $this->path = rtrim($path, '/');
+        if ($this->path == '') $this->path = '/';
         $this->controller = $controller;
         $this->attributes = new Collection($attributes);
         $this->validMethods = $validMethods;
