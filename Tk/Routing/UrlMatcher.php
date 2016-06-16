@@ -85,7 +85,6 @@ class UrlMatcher implements MatcherInterface
     {
         $attributes['_route'] = $name;
         $attributes['_controller'] = $route->getController();
-        //return $this->mergeDefaults($attributes, $route->getDefaults());
         return $this->mergeDefaults($attributes, $route->getAttributes()->all());
     }
 
