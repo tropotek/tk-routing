@@ -53,7 +53,8 @@ class StaticMatcher implements MatcherInterface
         
         $staticPath = $this->templatePath . $pathinfo;
         $name = str_replace('.html', '', basename($pathinfo));
-        if (is_readable($staticPath)) {
+        
+        if (is_file($staticPath)) {
             return ['_route' => $name, '_controller' => $this->staticController, '_staticPath' => $staticPath];
         }
         return [];
