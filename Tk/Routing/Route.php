@@ -57,7 +57,7 @@ class Route
      * @param array $attributes
      * @param array $validMethods
      */
-    public function __construct($path, $controller, $attributes = [], $validMethods = ['GET','POST','HEAD'])
+    public function __construct($path, $controller, $attributes = array(), $validMethods = ['GET','POST','HEAD'])
     {
         $this->path = rtrim($path, '/');
         if ($this->path == '') $this->path = '/';
