@@ -83,7 +83,7 @@ class Route
      */
     public function setValidMethods($methods)
     {
-        $this->validMethods = is_array($methods) ? $methods : [$methods];
+        $this->validMethods = is_array($methods) ? $methods : array($methods);
     }
 
     /**
