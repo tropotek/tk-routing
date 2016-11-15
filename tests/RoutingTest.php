@@ -72,26 +72,29 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
         $route = $this->routeCollection->get('Home');
         $this->assertInstanceOf('\Tk\Routing\Route', $route);
     }
-    
-    
+
+
     public function testRouteMatcher()
     {
         $matcher = new UrlMatcher($this->routeCollection);
-        
+
         $request = new Request(\Tk\Uri::create('/index.html'), 'GET', \Tk\Headers::create(), $_REQUEST, $_SERVER);
         $route = $matcher->match($request);
-        $this->assertEquals('/index.html', $route->getPath());
+        $this->assertEquals('Home', $route['_route']);
+        $this->assertEquals('App\Controller\Index::doDefault', $route['_controller']);
 
         $request = new Request(\Tk\Uri::create('/home'), 'GET', \Tk\Headers::create(), $_REQUEST, $_SERVER);
         $route = $matcher->match($request);
-        $this->assertEquals('/home', $route->getPath());
+        $this->assertEquals('HomeNew', $route['_route']);
+        $this->assertEquals('App\Controller\Index::doDefault', $route['_controller']);
 
         $request = new Request(\Tk\Uri::create('/contact')->set('test', 'value'), 'GET', \Tk\Headers::create(), $_REQUEST, $_SERVER);
         $route = $matcher->match($request);
-        $this->assertEquals('/contact', $route->getPath());
-        
+        $this->assertEquals('ContactNew', $route['_route']);
+        $this->assertEquals('App\Controller\Index::doDefault', $route['_controller']);
+
     }
-    
-    
+
+
 }
 
