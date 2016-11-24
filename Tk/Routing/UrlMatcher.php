@@ -40,7 +40,7 @@ class UrlMatcher implements MatcherInterface
         $pathinfo = $uri->getRelativePath();
         if ($pathinfo === '') $pathinfo = '/';  // Look for default home path if path is empty, Keep an eye on this one....
         
-        /** @var Route $route */
+        /* @var Route $route */
         foreach($this->routeCollection as $name => $route) {
             $compiledRoute = $route->compile();
             
