@@ -3,7 +3,7 @@ namespace Tk\Listener;
 
 use Tk\Event\RequestEvent;
 use Tk\Routing\MatcherInterface;
-use Tk\EventDispatcher\SubscriberInterface;
+use Tk\Event\Subscriber;
 
 
 /**
@@ -13,7 +13,7 @@ use Tk\EventDispatcher\SubscriberInterface;
  * @link http://www.tropotek.com/
  * @license Copyright 2016 Michael Mifsud
  */
-class RouteListener implements SubscriberInterface
+class RouteListener implements Subscriber
 {
     /**
      * @var MatcherInterface
