@@ -67,10 +67,10 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
 
     public function testRoutes()
     {
-        $this->assertInstanceOf('\Tk\Routing\RouteCollection', $this->routeCollection);
+        $this->assertInstanceOf(\Tk\Routing\RouteCollection::class, $this->routeCollection);
         
         $route = $this->routeCollection->get('Home');
-        $this->assertInstanceOf('\Tk\Routing\Route', $route);
+        $this->assertInstanceOf(\Tk\Routing\Route::class, $route);
     }
 
 
