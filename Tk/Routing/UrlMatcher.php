@@ -66,7 +66,7 @@ class UrlMatcher implements MatcherInterface
             $ret = $this->getAttributes($route, $name, array_replace($matches, $hostMatches));
             return $ret;
         }
-        return [];
+        return array();
     }
 
     /**
