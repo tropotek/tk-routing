@@ -7,7 +7,7 @@ namespace Tk\Routing;
  * This match is helpful to render static pages in the template path,
  *
  * @author Michael Mifsud <info@tropotek.com>
- * @link http://www.tropotek.com/
+ * @see http://www.tropotek.com/
  * @license Copyright 2016 Michael Mifsud
  */
 class StaticMatcher implements MatcherInterface  
