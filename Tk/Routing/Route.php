@@ -10,8 +10,9 @@ use Tk\Collection;
  * @see http://www.tropotek.com/
  * @license Copyright 2016 Michael Mifsud
  * @notes Adapted from Symfony
+ * @deprecated This will be removed once the symfony Routing lib is used by all projects
  */
-class Route 
+class Route
 {
 
     /**
