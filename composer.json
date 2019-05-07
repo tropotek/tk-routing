@@ -23,8 +23,7 @@
     },
     
     "require": {
-        "ttek/tk-framework": "~2.0",
-        "symfony/routing": "^4.2"
+        "ttek/tk-framework": "~2.0"
     },
     "extra": {
         "branch-alias": {
