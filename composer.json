@@ -16,11 +16,15 @@
     "autoload": {
         "psr-0": {
             "Tk\\": ""
-        }
+        },
+        "exclude-from-classmap": [
+            "/tests/"
+        ]
     },
     
     "require": {
-        "ttek/tk-framework": "~2.0"
+        "ttek/tk-framework": "~2.0",
+        "symfony/routing": "^4.2"
     },
     "extra": {
         "branch-alias": {
