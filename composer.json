@@ -3,9 +3,9 @@
     "type": "library",
     "description": "A URL routing library for the Tk lib",
     "keywords": ["tk", "tropotek", "MVC", "routing", "url"],
-    "time":  "2016-04-11",
+    "time": "2019-04-09",
     "license": "MIT",
-    "version": "trunk",
+    "version": "3.0.0",
     "authors": [
         {
             "name": "Michael Mifsud",
@@ -23,11 +23,11 @@
     },
     
     "require": {
-        "ttek/tk-framework": "~2.0"
+        "ttek/tk-framework": "~3.0"
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.0.x-dev"
+            "dev-master": "3.0.x-dev"
         }
     }
 }
