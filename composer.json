@@ -1,7 +1,7 @@
 {
     "name": "ttek/tk-routing",
     "type": "library",
-    "description": "A URL routing library for the Tk lib",
+    "description": "Deprecated use Symfony routing libs",
     "keywords": ["tk", "tropotek", "MVC", "routing", "url"],
     "time": "2019-04-09",
     "license": "MIT",
